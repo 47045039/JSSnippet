@@ -10,7 +10,8 @@ var log_opt = {
 
 var test_function = false;
 var test_factorial = false;
-var test_closure = true;
+var test_closure = false;
+var test_this = true;
 
 if (test_function) {
   require('./function');
@@ -55,4 +56,19 @@ if (test_closure) {
   arr3.forEach(function(func) {
     console.log(func(index3++));
   });
+}
+
+var name = 'global context name';
+if (test_this) {
+  var that = require('./this');
+
+  that.object1.showNameFunc()();  // TODO: 'undefined' ??? why not 'global context name' ???
+
+  that.object2.showNameFunc()();  // object 2 name
+
+  var obj3 = that.object3;
+  var func;
+  obj3.showName();  // object 3 name
+  (obj3.showName)();  // object 3 name
+  (func = obj3.showName)(); // TODO: 'undefined' ??? why not 'global context name' ???
 }
