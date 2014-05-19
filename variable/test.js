@@ -3,7 +3,8 @@
  */
 
 var test_privilege = false;
-var test_static = true;
+var test_static = false;
+var test_singleton = true;
 
 if (test_privilege) {
   var privilege = require('./privilege');
@@ -35,4 +36,10 @@ if (test_static) {
   person1.setName('Person 1 new name');
   console.log(person1.getName());  // Person 1 new name
   console.log(person2.getName());  // Person 1 new name
+}
+
+if (test_singleton) {
+  var singleton = require('./singleton');
+  console.log(singleton.publicProperty);  // singleton public property
+  console.log(singleton.publicMethod());  // 10
 }
