@@ -11,7 +11,8 @@ var log_opt = {
 var test_function = false;
 var test_factorial = false;
 var test_closure = false;
-var test_this = true;
+var test_this = false;
+var test_scope = true;
 
 if (test_function) {
   require('./function');
@@ -71,4 +72,12 @@ if (test_this) {
   obj3.showName();  // object 3 name
   (obj3.showName)();  // object 3 name
   (func = obj3.showName)(); // TODO: 'undefined' ??? why not 'global context name' ???
+}
+
+if (test_scope) {
+  var scope = require('./scope');
+
+  scope.outputNumbers(2);  // 0  1  2  5
+
+  scope.outputNumbers2(2);  // 0  1
 }
