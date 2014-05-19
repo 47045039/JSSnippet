@@ -2,7 +2,8 @@
  * Created by mts on 14-5-19.
  */
 
-var test_privilege = true;
+var test_privilege = false;
+var test_static = true;
 
 if (test_privilege) {
   var privilege = require('./privilege');
@@ -20,4 +21,18 @@ if (test_privilege) {
   person2.setName('Person 2 new name');
   console.log(person1.getName());  // Person 1 new name
   console.log(person2.getName());  // Person 2 new name
+}
+
+if (test_static) {
+  var stat = require('./static');
+
+  var person1 = new stat.Person('Person 1 name');
+  var person2 = new stat.Person('Person 2 name');
+  console.log(person1.getName());  // Person 2 name
+  console.log(person2.getName());  // Person 2 name
+
+  person2.setName('Person 2 new name');
+  person1.setName('Person 1 new name');
+  console.log(person1.getName());  // Person 1 new name
+  console.log(person2.getName());  // Person 1 new name
 }
