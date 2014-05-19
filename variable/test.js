@@ -42,4 +42,9 @@ if (test_singleton) {
   var singleton = require('./singleton');
   console.log(singleton.publicProperty);  // singleton public property
   console.log(singleton.publicMethod());  // 10
+
+  var singleton2 = require('./singleton').singleton2;
+  singleton2.show();  // I am a instance of CustomType.
+  console.log(singleton2.publicProperty);  // singleton 2 public property
+  console.log(singleton2.publicMethod());  // 9
 }
