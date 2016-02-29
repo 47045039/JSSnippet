@@ -4,10 +4,10 @@
 
 // 工厂函数模式生成对象。
 // 属性不共享，方法共享。
-exports = module.exports = createPreson;
-exports.createPerson = createPreson;
+exports = module.exports = createPerson;
+exports.createPerson = createPerson;
 
-function createPreson(name, age) {
+function createPerson(name, age) {
   var obj = new Object();
   obj.name = name;
   obj.age = age;
