@@ -112,7 +112,7 @@ if (test_durable) {
   p1.say2();
 
   var p2 = durable.Person('person 2', 30);
-  p1.say('person 222222222', 33);
+  p2.say('person 222222222', 33);
   p2.say2();
 
   console.log(p1.say === p2.say);
